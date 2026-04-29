@@ -1,0 +1,43 @@
+MySQL Shell 8.0.45
+
+Copyright (c) 2016, 2026, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+ MySQL  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 16
+Server version: 8.0.45 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > use taller3;
+Default schema set to `taller3`.
+Fetching global names, object names from `taller3` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  taller3  SQL > select hola("CANO") as FUNCION
+                                        -> ;
++---------+
+| FUNCION |
++---------+
+| CANO    |
++---------+
+1 row in set (0.0097 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select hola("CANO") as FUNCION ;
++-----------+
+| FUNCION   |
++-----------+
+| HOLA CANO |
++-----------+
+1 row in set (0.0015 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select hello;
+ERROR: 1054 (42S22): Unknown column 'hello' in 'field list'
+ MySQL  localhost:3306 ssl  taller3  SQL > select hello("SOS");
++--------------+
+| hello("SOS") |
++--------------+
+| HOLA SOS     |
++--------------+
+1 row in set (0.0010 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL >
