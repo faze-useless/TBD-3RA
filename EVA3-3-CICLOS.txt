@@ -1,0 +1,91 @@
+MySQL Shell 8.0.45
+
+Copyright (c) 2016, 2026, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+ MySQL  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 19
+Server version: 8.0.45 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > select factorial(5);
+ERROR: 1046 (3D000): No database selected
+ MySQL  localhost:3306 ssl  SQL > use taller3;
+Default schema set to `taller3`.
+Fetching global names, object names from `taller3` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  taller3  SQL > select factorial(5);
++--------------+
+| factorial(5) |
++--------------+
+|          120 |
++--------------+
+1 row in set (0.0115 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select factorial_repeat(5);
++---------------------+
+| factorial_repeat(5) |
++---------------------+
+|                 120 |
++---------------------+
+1 row in set (0.0096 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select factorial_while(5);
++--------------------+
+| factorial_while(5) |
++--------------------+
+|                120 |
++--------------------+
+1 row in set (0.0018 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select potencia_loop(3,2);
++--------------------+
+| potencia_loop(3,2) |
++--------------------+
+|                  9 |
++--------------------+
+1 row in set (0.0017 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select potencia_loop(3,3);
++--------------------+
+| potencia_loop(3,3) |
++--------------------+
+|                 27 |
++--------------------+
+1 row in set (0.0009 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select potencia_loop(3,4);
++--------------------+
+| potencia_loop(3,4) |
++--------------------+
+|                 81 |
++--------------------+
+1 row in set (0.0009 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select potencia_loop(3,5);
++--------------------+
+| potencia_loop(3,5) |
++--------------------+
+|                243 |
++--------------------+
+1 row in set (0.0009 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select potencia_loop(9,4);
++--------------------+
+| potencia_loop(9,4) |
++--------------------+
+|               6561 |
++--------------------+
+1 row in set (0.0008 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select potencia_while(9,4);
++---------------------+
+| potencia_while(9,4) |
++---------------------+
+|                6561 |
++---------------------+
+1 row in set (0.0023 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select potencia_while(5, 3);
++----------------------+
+| potencia_while(5, 3) |
++----------------------+
+|                  125 |
++----------------------+
+1 row in set (0.0009 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL >
