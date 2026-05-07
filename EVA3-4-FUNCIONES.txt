@@ -1,0 +1,80 @@
+MySQL Shell 8.0.45
+
+Copyright (c) 2016, 2026, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+ MySQL  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 22
+Server version: 8.0.45 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > use taller3;
+Default schema set to `taller3`.
+Fetching global names, object names from `taller3` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  taller3  SQL > create table customer as select * from sakila.customer;
+Query OK, 601 rows affected (0.1226 sec)
+
+Records: 601  Duplicates: 0  Warnings: 0
+ MySQL  localhost:3306 ssl  taller3  SQL > select contar_clientes();
++-------------------+
+| contar_clientes() |
++-------------------+
+|               601 |
++-------------------+
+1 row in set (0.0189 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > create table prueba(id int, valor varchar(50));
+Query OK, 0 rows affected (0.0180 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > insert into prueba value(1, "xd");
+Query OK, 1 row affected (0.0124 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select * from prueba;
++----+-------+
+| id | valor |
++----+-------+
+|  1 | xd    |
++----+-------+
+1 row in set (0.0008 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > insert into prueba value(5, "XD");
+Query OK, 1 row affected (0.0087 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select max(id) from prueba;
++---------+
+| max(id) |
++---------+
+|       5 |
++---------+
+1 row in set (0.0075 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > insert into prueba value(generar_id(), "algo");
+Query OK, 1 row affected (0.0099 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select * from prueba;
++----+-------+
+| id | valor |
++----+-------+
+|  1 | xd    |
+|  5 | XD    |
+|  6 | algo  |
++----+-------+
+3 rows in set (0.0009 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > insert into prueba value(generar_id(), "algo");
+Query OK, 1 row affected (0.0099 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select * from prueba;
++----+-------+
+| id | valor |
++----+-------+
+|  1 | xd    |
+|  5 | XD    |
+|  6 | algo  |
+|  7 | algo  |
++----+-------+
+4 rows in set (0.0008 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select generar_rfc("EMILIANO", "CANO", "MARO", "2005-09-27");
++-------------------------------------------------------+
+| generar_rfc("EMILIANO", "CANO", "MARO", "2005-09-27") |
++-------------------------------------------------------+
+| CAME050927                                            |
++-------------------------------------------------------+
+1 row in set (0.0107 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL >
