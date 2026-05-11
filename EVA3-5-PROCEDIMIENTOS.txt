@@ -1,0 +1,152 @@
+MySQL Shell 8.0.45
+
+Copyright (c) 2016, 2026, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \sql
+Switching to SQL mode... Commands end with ;
+ MySQL  SQL > \connect --mc root@localhosy
+Creating a Classic session to 'root@localhosy'
+Please provide the password for 'root@localhosy': *
+MySQL Error 2005 (HY000): Unknown MySQL server host 'localhosy' (11001)
+ MySQL  SQL > s
+ERROR: Not connected.
+           -> s;
+ERROR: Not connected.
+ MySQL  SQL > \connect --mc root@localhost
+Creating a Classic session to 'root@localhost'
+Fetching global names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 25
+Server version: 8.0.45 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > call lista_clientes(20);
+ERROR: 1046 (3D000): No database selected
+ MySQL  localhost:3306 ssl  SQL > use taller3;
+Default schema set to `taller3`.
+Fetching global names, object names from `taller3` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  taller3  SQL > call lista_clientes(20);
++-------------+----------+------------+-----------+-------------------------------------+------------+--------+---------------------+---------------------+
+| customer_id | store_id | first_name | last_name | email                               | address_id | active | create_date         | last_update         |
++-------------+----------+------------+-----------+-------------------------------------+------------+--------+---------------------+---------------------+
+|           1 |        1 | MARY       | SMITH     | MARY.SMITH@sakilacustomer.org       |          5 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|           2 |        1 | PATRICIA   | JOHNSON   | PATRICIA.JOHNSON@sakilacustomer.org |          6 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|           3 |        1 | LINDA      | WILLIAMS  | LINDA.WILLIAMS@sakilacustomer.org   |          7 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|           4 |        2 | BARBARA    | JONES     | BARBARA.JONES@sakilacustomer.org    |          8 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|           5 |        1 | ELIZABETH  | BROWN     | ELIZABETH.BROWN@sakilacustomer.org  |          9 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|           6 |        2 | JENNIFER   | DAVIS     | JENNIFER.DAVIS@sakilacustomer.org   |         10 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|           7 |        1 | MARIA      | MILLER    | MARIA.MILLER@sakilacustomer.org     |         11 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|           8 |        2 | SUSAN      | WILSON    | SUSAN.WILSON@sakilacustomer.org     |         12 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|           9 |        2 | MARGARET   | MOORE     | MARGARET.MOORE@sakilacustomer.org   |         13 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|          10 |        1 | DOROTHY    | TAYLOR    | DOROTHY.TAYLOR@sakilacustomer.org   |         14 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|          11 |        2 | LISA       | ANDERSON  | LISA.ANDERSON@sakilacustomer.org    |         15 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|          12 |        1 | NANCY      | THOMAS    | NANCY.THOMAS@sakilacustomer.org     |         16 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|          13 |        2 | KAREN      | JACKSON   | KAREN.JACKSON@sakilacustomer.org    |         17 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|          14 |        2 | BETTY      | WHITE     | BETTY.WHITE@sakilacustomer.org      |         18 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|          15 |        1 | HELEN      | HARRIS    | HELEN.HARRIS@sakilacustomer.org     |         19 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|          16 |        2 | SANDRA     | MARTIN    | SANDRA.MARTIN@sakilacustomer.org    |         20 |      0 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|          17 |        1 | DONNA      | THOMPSON  | DONNA.THOMPSON@sakilacustomer.org   |         21 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|          18 |        2 | CAROL      | GARCIA    | CAROL.GARCIA@sakilacustomer.org     |         22 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|          19 |        1 | RUTH       | MARTINEZ  | RUTH.MARTINEZ@sakilacustomer.org    |         23 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
+|          20 |        2 | SHARON     | ROBINSON  | SHARON.ROBINSON@sakilacustomer.org  |         24 |      1 | 2006-02-14 22:04:36 | 2006-02-15 04:57:20 |
++-------------+----------+------------+-----------+-------------------------------------+------------+--------+---------------------+---------------------+
+20 rows in set (0.0123 sec)
+
+Query OK, 0 rows affected (0.0123 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > call datos_cliente(601);
++-------------+----------+------------+------------+-------+------------+--------+---------------------+---------------------+
+| customer_id | store_id | first_name | last_name  | email | address_id | active | create_date         | last_update         |
++-------------+----------+------------+------------+-------+------------+--------+---------------------+---------------------+
+|         601 |        1 | Juan       | Nepomuceno | NULL  |          1 |      1 | 2026-04-20 16:23:24 | 2026-04-20 16:23:24 |
++-------------+----------+------------+------------+-------+------------+--------+---------------------+---------------------+
+1 row in set (0.0038 sec)
+
+Query OK, 0 rows affected (0.0038 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select @cont = 0;
++-----------+
+| @cont = 0 |
++-----------+
+|      NULL |
++-----------+
+1 row in set (0.0075 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > call contar_clientes(@cont);
+Query OK, 1 row affected (0.0166 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select @cont = 0;
++-----------+
+| @cont = 0 |
++-----------+
+|         0 |
++-----------+
+1 row in set (0.0071 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > call contar_clientes(@cont);
+Query OK, 1 row affected (0.0026 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select @cont;
++-------+
+| @cont |
++-------+
+|   601 |
++-------+
+1 row in set (0.0007 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select * from prueba;
++----+-------+
+| id | valor |
++----+-------+
+|  1 | xd    |
+|  5 | XD    |
+|  6 | algo  |
+|  7 | algo  |
++----+-------+
+4 rows in set (0.0084 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > call insertar_prueba(8, "sos");
+Query OK, 1 row affected (0.0114 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select * from prueba;
++----+-------+
+| id | valor |
++----+-------+
+|  1 | xd    |
+|  5 | XD    |
+|  6 | algo  |
+|  7 | algo  |
+|  8 | sos   |
++----+-------+
+5 rows in set (0.0008 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > call insertar_prueba_id("ostion");
+Query OK, 1 row affected (0.0120 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > call insertar_prueba_id("sisisisi");
+Query OK, 1 row affected (0.0095 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select * from prueba;
++----+----------+
+| id | valor    |
++----+----------+
+|  1 | xd       |
+|  5 | XD       |
+|  6 | algo     |
+|  7 | algo     |
+|  8 | sos      |
+|  9 | ostion   |
+| 10 | sisisisi |
++----+----------+
+7 rows in set (0.0009 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > create table persona(rfc varchar(10) primary key not null, nombre varchar(50) not null, ap_paterno varchar(50) not null, ap_materno varchar(50) default null, fecha_nac date not null);
+Query OK, 0 rows affected (0.0456 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > call insertar_persona("EMILIANO", "CANO", "MARO", "2005-09-27");
+Query OK, 1 row affected (0.0145 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select * from persona;
++------------+----------+------------+------------+------------+
+| rfc        | nombre   | ap_paterno | ap_materno | fecha_nac  |
++------------+----------+------------+------------+------------+
+| CAME050927 | EMILIANO | CANO       | MARO       | 2005-09-27 |
++------------+----------+------------+------------+------------+
+1 row in set (0.0009 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > call insertar_persona("FREDDY", "FAZBEAR", "SMITH", "1987-01-01");
+Query OK, 1 row affected (0.0048 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL > select * from persona;
++------------+----------+------------+------------+------------+
+| rfc        | nombre   | ap_paterno | ap_materno | fecha_nac  |
++------------+----------+------------+------------+------------+
+| CAME050927 | EMILIANO | CANO       | MARO       | 2005-09-27 |
+| FASF870101 | FREDDY   | FAZBEAR    | SMITH      | 1987-01-01 |
++------------+----------+------------+------------+------------+
+2 rows in set (0.0009 sec)
+ MySQL  localhost:3306 ssl  taller3  SQL >
